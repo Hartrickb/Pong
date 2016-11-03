@@ -15,6 +15,7 @@
 		91036F501DCA76B80037661E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91036F4E1DCA76B80037661E /* Main.storyboard */; };
 		91036F521DCA76B80037661E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91036F511DCA76B80037661E /* Assets.xcassets */; };
 		91036F551DCA76B80037661E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91036F531DCA76B80037661E /* LaunchScreen.storyboard */; };
+		91036F5D1DCB94490037661E /* LLPIXEL3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91036F5C1DCB94490037661E /* LLPIXEL3.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		91036F511DCA76B80037661E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91036F541DCA76B80037661E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91036F561DCA76B80037661E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91036F5C1DCB94490037661E /* LLPIXEL3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LLPIXEL3.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				91036F4C1DCA76B80037661E /* GameViewController.swift */,
 				91036F4E1DCA76B80037661E /* Main.storyboard */,
 				91036F511DCA76B80037661E /* Assets.xcassets */,
+				91036F5C1DCB94490037661E /* LLPIXEL3.ttf */,
 				91036F531DCA76B80037661E /* LaunchScreen.storyboard */,
 				91036F561DCA76B80037661E /* Info.plist */,
 			);
@@ -105,6 +108,7 @@
 				TargetAttributes = {
 					91036F401DCA76B70037661E = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = L6BTPYG3M7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -133,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91036F501DCA76B80037661E /* Main.storyboard in Resources */,
+				91036F5D1DCB94490037661E /* LLPIXEL3.ttf in Resources */,
 				91036F471DCA76B80037661E /* GameScene.sks in Resources */,
 				91036F521DCA76B80037661E /* Assets.xcassets in Resources */,
 				91036F551DCA76B80037661E /* LaunchScreen.storyboard in Resources */,
@@ -272,6 +277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L6BTPYG3M7;
 				INFOPLIST_FILE = Pong/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Bennett.Pong;
@@ -284,6 +290,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L6BTPYG3M7;
 				INFOPLIST_FILE = Pong/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Bennett.Pong;
@@ -311,6 +318,7 @@
 				91036F5B1DCA76B80037661E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
