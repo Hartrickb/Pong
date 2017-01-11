@@ -117,13 +117,13 @@ class GameScene: SKScene {
         
         switch currentGameType {
         case .easy:
-            enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.7))
+            enemy.run(SKAction.moveTo(x: ball.position.x, duration: 1.2))
             break
         case .medium:
-            enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.4))
+            enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.9))
             break
         case .hard:
-            enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.1))
+            enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.5))
             break
         case .player2:
             
