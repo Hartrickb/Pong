@@ -22,16 +22,17 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        startGame()
-        
         topLabel = self.childNode(withName: "topLabel") as! SKLabelNode
         bottomLabel = self.childNode(withName: "bottomLabel") as! SKLabelNode
         
         ball = self.childNode(withName: "ball") as! SKSpriteNode
         enemy = self.childNode(withName: "enemy") as! SKSpriteNode
+        
+        enemy.position.y = (self.frame.height / 2) - 50
+        
         main = self.childNode(withName: "main") as! SKSpriteNode
         
-        ball.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 20))
+        main.position.y = (-self.frame.height / 2) + 50
         
         let border = SKPhysicsBody(edgeLoopFrom: self.frame)
         
@@ -40,6 +41,8 @@ class GameScene: SKScene {
         
         self.physicsBody = border
         
+        startGame()
+        
     }
     
     func startGame() {
@@ -47,6 +50,7 @@ class GameScene: SKScene {
         score = [0,0]
         topLabel.text = "\(score[1])"
         bottomLabel.text = "\(score[0])"
+        ball.physicsBody?.applyImpulse(CGVector(dx: 10, dy: 10))
         
     }
     
@@ -57,10 +61,10 @@ class GameScene: SKScene {
         
         if playerWhoWon == main {
             score[0] += 1
-            ball.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 20))
+            ball.physicsBody?.applyImpulse(CGVector(dx: 10, dy: 10))
         } else if playerWhoWon == enemy {
             score[1] += 1
-            ball.physicsBody?.applyImpulse(CGVector(dx: -20, dy: -20))
+            ball.physicsBody?.applyImpulse(CGVector(dx: -10, dy: -10))
         }
         
         topLabel.text = "\(score[1])"
@@ -73,7 +77,16 @@ class GameScene: SKScene {
             
             let location = touch.location(in: self)
             
-            main.run(SKAction.moveTo(x: location.x, duration: 0.2))
+            if currentGameType == .player2 {
+                if location.y > 0 {
+                    enemy.run(SKAction.moveTo(x: location.x, duration: 0.2))
+                }
+                if location.y < 0 {
+                    main.run(SKAction.moveTo(x: location.x, duration: 0.2))
+                }
+            } else {
+                main.run(SKAction.moveTo(x: location.x, duration: 0.2))
+            }
             
         }
         
@@ -85,7 +98,16 @@ class GameScene: SKScene {
             
             let location = touch.location(in: self)
             
-            main.run(SKAction.moveTo(x: location.x, duration: 0.2))
+            if currentGameType == .player2 {
+                if location.y > 0 {
+                    enemy.run(SKAction.moveTo(x: location.x, duration: 0.2))
+                }
+                if location.y < 0 {
+                    main.run(SKAction.moveTo(x: location.x, duration: 0.2))
+                }
+            } else {
+                main.run(SKAction.moveTo(x: location.x, duration: 0.2))
+            }
             
         }
     }
@@ -93,11 +115,24 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
-        enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.4))
+        switch currentGameType {
+        case .easy:
+            enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.7))
+            break
+        case .medium:
+            enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.4))
+            break
+        case .hard:
+            enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.1))
+            break
+        case .player2:
+            
+            break
+        }
         
-        if ball.position.y <= main.position.y - 80 {
+        if ball.position.y <= main.position.y - 30 {
             addScore(playerWhoWon: enemy)
-        } else if ball.position.y >= enemy.position.y + 80 {
+        } else if ball.position.y >= enemy.position.y + 30 {
             addScore(playerWhoWon: main)
         }
         
